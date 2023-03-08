@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "PT Serif", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container h1 {
+  margin: 60px 0 26px;
+  color: rebeccapurple;
+  font-size: 60px;
+}

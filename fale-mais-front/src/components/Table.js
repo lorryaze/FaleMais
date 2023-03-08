@@ -4,7 +4,7 @@ const TableHeader = () => {
     <thead>
       <tr>
         <th>Origem</th>
-        <th>Desino</th>
+        <th>Destino</th>
         <th>Tempo</th>
         <th>Plano</th>
       </tr>
@@ -20,9 +20,6 @@ const TableBody = (props) => {
         <td>{row.destino}</td>
         <td>{row.tempo}</td>
         <td>{row.plano}</td>
-        <td>
-          <button onClick={() => props.removeCharacter(index)}>Delete</button>
-        </td>
       </tr>
     );
   });
@@ -34,13 +31,16 @@ class Table extends Component {
     const { characterData, removeCharacter } = this.props;
 
     return (
-      <table>
-        <TableHeader />
-        <TableBody
-          characterData={characterData}
-          removeCharacter={removeCharacter}
-        />
-      </table>
+      (<h2>Tabela de preços calculados</h2>),
+      (
+        <table>
+          <TableHeader />,
+          <TableBody
+            characterData={characterData}
+            removeCharacter={removeCharacter}
+          />
+        </table>
+      )
     );
   }
 }
