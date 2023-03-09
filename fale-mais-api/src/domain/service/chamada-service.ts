@@ -1,16 +1,21 @@
-import { Chamada } from "../entities/chamada";
+import { TarifaOrmRepository } from "../../infra/database/tarifa-orm";
+import { ChamadaRepository } from "../repositories/chamadaRepository";
+import { TarifaService } from "./tarifa-service";
 
 export class ChamadaService {
-  //constructor(private chamadaRepo: ChamadaRepository) {}
+  constructor(private chamadaRepo: ChamadaRepository) {
+    //DIP - Depende de uma abstração ao invés de depender de uma implementação
+  }
 
-  obterCustoChamada(
+  calculatePrice(
     origem: string,
     destino: string,
     tempo: number,
-    nomePlano: string
+    plano: string
   ) {
-    const chamada = new Chamada("123", origem, destino, tempo, nomePlano);
-    //const custo = this.chamadaRepo.calcularCustoChamada(chamada);
-    //return custo;
+    const tarifaService = new TarifaService(new TarifaOrmRepository());
+    const valuePerMin = tarifaService.findTarifa(origem, destino);
+    const chamadaPrice = this.chamadaRepo.calculate(valuePerMin, tempo, plano);
+    return chamadaPrice;
   }
 }

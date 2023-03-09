@@ -8,11 +8,4 @@ export class Plano {
     this.nome = nome;
     this.minutos = minutos;
   }
-
-  getNomePlano() {
-    return this.nome;
-  }
-  getMinutosPlano() {
-    return this.minutos;
-  }
 }
