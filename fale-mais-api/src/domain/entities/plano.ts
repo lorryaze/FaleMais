@@ -1,9 +1,9 @@
 export class Plano {
   id: string;
   nome: string;
-  minutos: string;
+  minutos: number;
 
-  constructor(id: string, nome: string, minutos: string) {
+  constructor(id: string, nome: string, minutos: number) {
     this.id = id;
     this.nome = nome;
     this.minutos = minutos;
