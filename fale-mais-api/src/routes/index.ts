@@ -23,6 +23,12 @@ router.get("/chamada", (req, res) => {
   const chamadaService = new ChamadaService();
 
   //const retorno = chamadaService.calculatePrice(60, 80, 1.7);
-  const retorno = chamadaService.priceByPlan("011", "017", 80, "Fale Mais 60");
-  res.send(`Preco chamada: ${retorno}`);
+  const retorno = chamadaService.priceByPlan(
+    String(req.query?.origem),
+    String(req.query?.destino),
+    Number(req.query?.tempo),
+    String(req.query?.plano)
+  );
+
+  res.send(JSON.stringify({ result: retorno }));
 });
