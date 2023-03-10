@@ -6,7 +6,7 @@ export class PlanoService {
   }
 
   findPlanoMinutes(nome: string) {
-    const minutes = this.planoRepo.find(nome);
+    const minutes = this.planoRepo.findByName(nome);
     return minutes;
   }
 }

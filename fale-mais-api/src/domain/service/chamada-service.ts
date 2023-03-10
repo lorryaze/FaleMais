@@ -1,21 +1,36 @@
+import { PlanoOrmRepository } from "../../infra/database/plano-orm";
 import { TarifaOrmRepository } from "../../infra/database/tarifa-orm";
-import { ChamadaRepository } from "../repositories/chamadaRepository";
+import { PlanoService } from "./plano-service";
 import { TarifaService } from "./tarifa-service";
 
 export class ChamadaService {
-  constructor(private chamadaRepo: ChamadaRepository) {
-    //DIP - Depende de uma abstração ao invés de depender de uma implementação
+  constructor() {}
+
+  calculatePrice(minutes: number, time: number, valuePerMin: number) {
+    const priceWithoutPlan = valuePerMin * time;
+    let priceWithPlan = 0;
+
+    if (time > minutes) {
+      const rest = time - minutes;
+      const percent = valuePerMin + valuePerMin * 0.1;
+      priceWithPlan = percent * rest;
+    }
+
+    return [priceWithoutPlan, priceWithPlan];
   }
 
-  calculatePrice(
+  priceByPlan(
     origem: string,
     destino: string,
-    tempo: number,
-    plano: string
+    time: number,
+    planoName: string
   ) {
     const tarifaService = new TarifaService(new TarifaOrmRepository());
     const valuePerMin = tarifaService.findTarifa(origem, destino);
-    const chamadaPrice = this.chamadaRepo.calculate(valuePerMin, tempo, plano);
-    return chamadaPrice;
+    const planoService = new PlanoService(new PlanoOrmRepository());
+
+    const minutos = planoService.findPlanoMinutes(planoName);
+    const valor = this.calculatePrice(minutos, time, valuePerMin);
+    return valor;
   }
 }

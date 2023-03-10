@@ -6,7 +6,6 @@ export class Chamada {
   destino: string;
   tempo: number;
   plano: Plano;
-  //nomePlano: string;
 
   constructor(
     id: string,
