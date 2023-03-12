@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Table from "../../components/Table";
 import Form from "../../components/Form";
 import TableTarifas from "../../components/TableTarifas";
 import "./styles.css";
-import Price from "../../components/Price";
 
 class App extends Component {
   state = {
