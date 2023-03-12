@@ -3,8 +3,8 @@ const TableHeader = () => {
   return (
     <thead>
       <tr>
-        <th>Sem fale mais</th>
-        <th>ComFaleMais</th>
+        <th>Preço Sem FaleMais</th>
+        <th>Preço Com FaleMais</th>
       </tr>
     </thead>
   );
@@ -26,13 +26,19 @@ class Price extends Component {
     const { semFaleMais, comFaleMais } = this.props;
 
     return (
-      (<h2>Tabela de preços calculados</h2>),
-      (
-        <table>
-          <TableHeader />
-          <TableBody semFaleMais={semFaleMais} comFaleMais={comFaleMais} />
-        </table>
-      )
+      <table
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "10px",
+          borderSpacing: "30px",
+          borderCollapse: "separate",
+        }}
+      >
+        <TableHeader />
+        <TableBody semFaleMais={semFaleMais} comFaleMais={comFaleMais} />
+      </table>
     );
   }
 }

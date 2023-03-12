@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "../../components/Form";
 import TableTarifas from "../../components/TableTarifas";
+import tarifas from "../tabelaPreco";
 import "./styles.css";
 
 class App extends Component {
@@ -20,23 +21,13 @@ class App extends Component {
   };
 
   render() {
-    const { tarifasCalculadas } = this.state;
-
-    const tarifas = [
-      {
-        origem: "011",
-        destino: "016",
-        valor: "1.90",
-      },
-    ];
-
     return (
       <div className="container">
         <h1>Fale Mais</h1>
-        <h2>Tabela de preços por minuto</h2>
-        <TableTarifas characterDataFixes={tarifas} />
         <h3>Insira os dados da chamada que deseja calcular.</h3>
         <Form handleSubmit={this.handleSubmit} />
+        <h2>Tabela de preços por minuto</h2>
+        <TableTarifas characterDataFixes={tarifas} />
       </div>
     );
   }

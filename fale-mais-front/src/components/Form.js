@@ -5,6 +5,30 @@ let comFaleMais;
 let semFaleMais;
 let resultado;
 
+const styleTB = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  borderSpacing: "30px",
+  borderCollapse: "separate",
+};
+
+const styleInput = {
+  borderTop: "3px",
+  padding: "5px",
+  background: "#E6E6E6",
+  borderRadius: "5px",
+  border: "none",
+};
+
+const styleButton = {
+  marginTop: "20px",
+  fontWeigth: "700",
+  background: "#E6E6E6",
+  borderRadius: "5px",
+  margin: "12px",
+};
+
 class Form extends Component {
   //seting inital state of my form camps
   initialState = {
@@ -51,39 +75,62 @@ class Form extends Component {
     return (
       <div>
         <form>
-          <label htmlFor="origem">Origem</label>
-          <input
-            type="text"
-            name="origem"
-            id="origem"
-            value={origem}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="destino">Destino</label>
-          <input
-            type="text"
-            name="destino"
-            id="destino"
-            value={destino}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="tempo">Tempo</label>
-          <input
-            type="text"
-            name="tempo"
-            id="tempo"
-            value={tempo}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="plano">Plano</label>
-          <input
-            type="text"
-            name="plano"
-            id="plano"
-            value={plano}
-            onChange={this.handleChange}
-          />
-          <input type="button" value="Submit" onClick={this.submitForm} />
+          <table style={styleTB}>
+            <td>
+              <input
+                style={styleInput}
+                placeholder="Origem"
+                type="text"
+                name="origem"
+                id="origem"
+                value={origem}
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+              <input
+                style={styleInput}
+                placeholder="Destino"
+                type="text"
+                name="destino"
+                id="destino"
+                value={destino}
+                onChange={this.handleChange}
+              />
+            </td>
+          </table>
+          <table style={styleTB}>
+            <td>
+              <input
+                style={styleInput}
+                placeholder="Tempo"
+                type="text"
+                name="tempo"
+                id="tempo"
+                value={tempo}
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+              <input
+                style={styleInput}
+                placeholder="Plano"
+                type="text"
+                name="plano"
+                id="plano"
+                value={plano}
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+              <input
+                style={styleButton}
+                type="button"
+                value="Submit"
+                onClick={this.submitForm}
+              />
+            </td>
+          </table>
         </form>
         <Price semFaleMais={semFaleMais} comFaleMais={comFaleMais} />
       </div>
