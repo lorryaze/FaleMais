@@ -6,7 +6,8 @@ describe("Chamada Service Unit Test", () => {
     const origem = "011";
     const destino = "016";
     const tempo = 20;
-    const nomePlano = "FaleMais 30";
+    const nomePlano = "Fale Mais 30";
+    const preçoChamada = [38, 0];
 
     const chamadaService = new ChamadaService();
 
@@ -17,6 +18,6 @@ describe("Chamada Service Unit Test", () => {
       nomePlano
     );
 
-    expect(retorno).toBe(38.0);
+    expect(retorno).toEqual(preçoChamada);
   });
 });

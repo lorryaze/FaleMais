@@ -31,7 +31,6 @@ export class ChamadaService {
 
     const minutos = planoService.buscarMinutosPlano(nomePlano);
     const valor = this.calcularPreco(minutos, tempo, valorPorMin);
-    console.log(`VALOR: ${valor}`);
     return valor;
   }
 }

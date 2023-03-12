@@ -6,7 +6,7 @@ export class TarifaService {
   }
 
   buscarTarifa(origem: string, destino: string) {
-    const valorTarifa = this.tarifaRepo.buscarTarifa(origem, destino);
-    return valorTarifa;
+    const tarifa = this.tarifaRepo.buscarTarifa(origem, destino);
+    return tarifa;
   }
 }

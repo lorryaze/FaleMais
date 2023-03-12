@@ -6,7 +6,7 @@ export class PlanoService {
   }
 
   buscarMinutosPlano(nome: string) {
-    const minutes = this.planoRepo.buscarPlanoNome(nome);
-    return minutes;
+    const minutos = this.planoRepo.buscarPlanoNome(nome);
+    return minutos;
   }
 }
