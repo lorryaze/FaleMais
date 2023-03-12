@@ -28,9 +28,14 @@ export class ChamadaService {
     const tarifaService = new TarifaService(new TarifaOrmRepository());
     const valorPorMin = tarifaService.buscarTarifa(origem, destino);
     const planoService = new PlanoService(new PlanoOrmRepository());
-
     const minutos = planoService.buscarMinutosPlano(nomePlano);
     const valor = this.calcularPreco(minutos, tempo, valorPorMin);
+
+    if (valorPorMin == 0) {
+      const tarifaInexistente = ["-", "-"];
+      return tarifaInexistente;
+    }
+
     return valor;
   }
 }

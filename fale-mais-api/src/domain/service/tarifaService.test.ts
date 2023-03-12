@@ -14,4 +14,16 @@ describe("Tarifa Service Unit Test", () => {
 
     expect(retorno).toBe(tarifa);
   });
+
+  test("deve retornar vazio caso não encontre a tarifa", () => {
+    const origem = "018";
+    const destino = "017";
+    const tarifa = 0;
+
+    const tarifaService = new TarifaService(new TarifaOrmRepository());
+
+    const retorno = tarifaService.buscarTarifa(origem, destino);
+
+    expect(retorno).toBe(tarifa);
+  });
 });

@@ -7,7 +7,6 @@ export class PlanoOrmRepository implements PlanoRepository {
 
   buscarPlanoNome(nome: string): number {
     const minutosPlano: Array<Plano> = planos.filter((x) => x.nome == nome);
-    console.log({ planos, nome });
     return minutosPlano[0].minutos;
   }
 }

@@ -15,7 +15,7 @@ router.get("/tarifa", (req, res) => {
 
 router.get("/plano", (req, res) => {
   const planoService = new PlanoService(new PlanoOrmRepository());
-  const retorno = planoService.buscarMinutosPlano("Fale Mais 60");
+  const retorno = planoService.buscarMinutosPlano("FaleMais 60");
   res.send(`Minutos do meu plano: ${retorno}`);
 });
 

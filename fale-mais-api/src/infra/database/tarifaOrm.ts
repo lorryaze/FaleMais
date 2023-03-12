@@ -8,6 +8,10 @@ export class TarifaOrmRepository implements TarifaRepository {
     const valorTarifa: Array<Tarifa> = tarifas.filter(
       (item) => item.origem == origem && item.destino == destino
     );
-    return valorTarifa[0].valor;
+    if (valorTarifa.length == 0) {
+      return 0;
+    } else {
+      return valorTarifa[0].valor;
+    }
   }
 }

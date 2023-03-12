@@ -4,7 +4,7 @@ import { PlanoService } from "./planoService";
 
 describe("Plano Service Unit Test", () => {
   test("deve retornar uma tarifa dado uma origem e um destino", () => {
-    const nome = "Fale Mais 30";
+    const nome = "FaleMais 30";
     const minutos = 30;
 
     const planoService = new PlanoService(new PlanoOrmRepository());
