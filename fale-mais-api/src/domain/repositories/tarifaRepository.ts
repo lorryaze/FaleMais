@@ -1,3 +1,3 @@
 export interface TarifaRepository {
-  find(origem: string, destino: string): number;
+  buscarTarifa(origem: string, destino: string): number;
 }

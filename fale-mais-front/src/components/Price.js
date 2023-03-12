@@ -29,7 +29,7 @@ class Price extends Component {
       (<h2>Tabela de preços calculados</h2>),
       (
         <table>
-          <TableHeader />,
+          <TableHeader />
           <TableBody semFaleMais={semFaleMais} comFaleMais={comFaleMais} />
         </table>
       )

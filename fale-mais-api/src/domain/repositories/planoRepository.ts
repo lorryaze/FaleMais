@@ -1,3 +1,3 @@
 export interface PlanoRepository {
-  findByName(nome: string): number;
+  buscarPlanoNome(nome: string): number;
 }

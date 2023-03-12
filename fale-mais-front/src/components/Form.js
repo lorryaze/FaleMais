@@ -3,7 +3,7 @@ import Price from "../components/Price";
 
 let comFaleMais;
 let semFaleMais;
-let result;
+let resultado;
 
 class Form extends Component {
   //seting inital state of my form camps
@@ -27,7 +27,7 @@ class Form extends Component {
   submitForm = async () => {
     this.props.handleSubmit(this.state);
     try {
-      result = await fetch(
+      resultado = await fetch(
         "http://localhost:3001/chamada?" +
           new URLSearchParams({
             origem: this.state.origem,
@@ -37,9 +37,9 @@ class Form extends Component {
           })
       );
 
-      result = await result.json();
-      semFaleMais = result.result[0];
-      comFaleMais = result.result[1];
+      resultado = await resultado.json();
+      semFaleMais = resultado.resultado[0];
+      comFaleMais = resultado.resultado[1];
     } catch (e) {
       console.log(e);
     }

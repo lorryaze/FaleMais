@@ -5,9 +5,9 @@ import { planos } from "./tables/planos";
 export class PlanoOrmRepository implements PlanoRepository {
   constructor() {}
 
-  findByName(nome: string): number {
-    const planoMinutes: Array<Plano> = planos.filter((x) => x.nome == nome);
+  buscarPlanoNome(nome: string): number {
+    const minutosPlano: Array<Plano> = planos.filter((x) => x.nome == nome);
     console.log({ planos, nome });
-    return planoMinutes[0].minutos;
+    return minutosPlano[0].minutos;
   }
 }

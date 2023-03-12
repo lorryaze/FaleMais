@@ -5,8 +5,8 @@ export class PlanoService {
     //DIP - Depende de uma abstração ao invés de depender de uma implementação
   }
 
-  findPlanoMinutes(nome: string) {
-    const minutes = this.planoRepo.findByName(nome);
+  buscarMinutosPlano(nome: string) {
+    const minutes = this.planoRepo.buscarPlanoNome(nome);
     return minutes;
   }
 }
